@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./fontawesome6/css/all.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+<title>Document</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <header class="progress_bar">
+                <div class="container">
+                    <div class="progress">
+                        <div class="progress-title field-title"><span id="current-send" >0</span> / <span id="total-send">0</span></div>
+                        <div class="response">0</div>
+                        <div class="progress-bar">
+                            <div class="progress-done" > </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <form action="#" method="post" id="messengers-mailings-form">
+                <div class="messangers">
+                    <div class="container">
+                        <div id="bot-network" class="field-block">
+                            <div class="buttons-row">
+                                <span class="buttons-row-label field-title">Мессенджер</span>
+                                <div class="checkbox">
+                                    <div class="button-col" value="telegram" first>
+                                        <label class="checkbox-label" for="telegram-bot"><i data-bulb
+                                                class=" tg fa-regular fa-lightbulb"></i> Telegram</label>
+                                        <input  class="checkbox-input" type="radio" name="bot-network"
+                                            id="telegram-bot" value="telegram">
+
+                                    </div>
+                                    <div class="button-col" value="vk">
+                                        <label class="checkbox-label " for="vk-bot"><i data-bulb
+                                                class="vk fa-regular fa-lightbulb"></i> VK</label>
+                                        <input  class="checkbox-input" type="radio" name="bot-network"
+                                            id="vk-bot" value="vk">
+
+                                    </div>
+                                    <div class="button-col" value="viber">
+                                        <label class="checkbox-label " for="viber-bot"><i data-bulb
+                                                class="vb fa-regular fa-lightbulb"></i> Viber</label>
+                                        <input  class="checkbox-input" type="radio" name="bot-network"
+                                            id="viber-bot" value="viber">
+                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="input_field">
+                        <div class="field-block">
+                            <div class="field-input">
+                                <label for="bot-token" class="field-label">token...</label>
+                                <input type="text" name="bot-token" id="bot-token">
+                            </div>
+                        </div>
+                        <div class="field-block">
+                            <div class="field-input">
+                                <label for="bot-header" class="field-label">header...</label>
+                                <input type="text" name="bot-title" id="bot-title" >
+                            </div>
+                        </div>
+                        <div class="field-block">
+                            <div class="field-input">
+                                <label for="bot-tags" class="field-label">tags...</label>
+                                <input type="text" name="bot-tags" id="bot-tags" >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="images">
+                        <div id="photos" class="image-block">
+                            <div class="buttons-row">
+                                <input style="display: none" accept="image/jpeg, image/png, image/jpg" type="file"
+                                    name="file-load" value="Load" oninput="upload_file()">
+                                <input type="hidden" name="message-file" value="">
+                                <input type="hidden" name="message-file-size" value="">
+
+                                <div><i class="fa-duotone fa-image"></i></div>
+                                <div class="button-col first">
+                                    <div class="photos-list">
+                                        <!--<div class="add-photo" onclick="click_upload()"></div>-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="message_for-users">
+                    <div class="message-for_users__title field-title">
+                        <span class="field-title">Сообщение для пользователей</span>
+                    </div>
+                    <div class="message_for-users__area">
+                        <textarea placeholder="Enter a message..." id="message-area" name="message-area" cols="30" rows="10"
+                            ></textarea>
+                    </div>
+                </div>
+                <div class="users_send">
+                    <div class="list-of_users-title field-title">
+                        <span class="field-title">Список пользователей</span>
+                    </div>
+                    <div class="list-of_users__items">
+                        <div class="list-of_users">
+                            <div class="list-of-users__area ">
+                                <textarea placeholder="Enter a list..." id="list-area" name="list-area" cols="30" rows="10"
+                                    ></textarea>
+                            </div>
+                        </div>
+                        <div class="counter_send">
+                            <div class="field-input">
+                                <input  type="number" name="at-time" id="at-time">
+                                <label for="bot-token" class="field-label">users at time</label>
+                            </div>
+                            <div class="field-input">
+                                <input  type="number" name="interval" id="interval">
+                                <label for="bot-token" class="field-label">interval</label>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form_buttons">
+                    <!--  <button type="button" class="border-button">Начать рассылку</button> -->
+                    <input type="submit" id="send-form" class="form_buttons-item field-title" value="Отправить"> <!-- стандартное слово отправить для input=submit -->
+                    <input id="stop-form" class="form_buttons-item field-title" value="Пауза">
+               </div>
+            </form>
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
